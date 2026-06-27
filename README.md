@@ -1,109 +1,434 @@
-# Python Practice
+# Python Practice Repository
 
-A collection of Python exercises, scripts, and small projects for learning and practicing Python programming.
+This repository contains my Python learning and practice programs covering core Python concepts, functions, exception handling, OOP concepts, and advanced Python topics.
 
-This repository contains self-contained examples and practice problems organized to make it easy to run, test, and iterate on small improvements.
+---
 
-## Contents
+# 1. Variables and Data Types
 
-- `exercises/` — short practice problems and exercises (algorithms, data structures, puzzles).
-- `projects/` — small projects demonstrating concepts and patterns.
-- `scripts/` — utility scripts and one-off experiments.
-- `tests/` — unit tests for exercises and projects.
-- `docs/` — documentation, notes, and learning resources.
-- `copilot-instructions.md` — agent hints and guidance for AI coding assistants (see AGENTS.md for the main agent guidance).
+Variables are used to store data.
 
-> Note: Directory names are suggestions — if the repository currently uses a different layout, follow that structure. This README is intended to be a friendly starting point; adapt it as the project grows.
-
-## Getting started
-
-Prerequisites
-
-- Python 3.8+ (recommended)
-- pip
-
-Clone the repository
-
-```bash
-git clone https://github.com/patelrambharat/Python_Practice.git
-cd Python_Practice
+```python
+name = "Bharat"
+age = 25
+salary = 50000.50
+is_active = True
 ```
 
-Create and activate a virtual environment (recommended)
+Data Types:
 
-```bash
-python -m venv .venv
-# macOS / Linux
-source .venv/bin/activate
-# Windows
-.\.venv\Scripts\activate
+- int  
+- float  
+- string  
+- boolean  
+- list  
+- tuple  
+- dictionary  
+
+---
+
+# 2. Conditional Statements
+
+Used for decision making.
+
+```python
+x = 10
+
+if x > 5:
+    print("Greater")
+
+else:
+    print("Smaller")
 ```
 
-Install dependencies
+---
 
-```bash
-pip install -r requirements.txt
+# 3. Loops
+
+### For Loop
+
+```python
+for i in range(5):
+    print(i)
 ```
 
-Running code
+### While Loop
 
-- Individual scripts can be run with `python scripts/<script_name>.py`.
-- Exercises and projects often include a README inside their directory with run instructions.
+```python
+x = 1
 
-Running tests
-
-If the repo includes tests (in `tests/`), run them with pytest:
-
-```bash
-pip install pytest
-pytest -q
+while x <= 5:
+    print(x)
+    x += 1
 ```
 
-## Project structure (example)
+---
 
-```
-Python_Practice/
-├─ exercises/
-│  ├─ arrays/
-│  ├─ recursion/
-│  └─ README.md
-├─ projects/
-│  ├─ web_scraper/
-│  └─ cli_tool/
-├─ scripts/
-├─ tests/
-├─ docs/
-├─ copilot-instructions.md
-└─ README.md
+# 4. Functions
+
+Reusable block of code.
+
+```python
+def greet():
+    print("Hello")
+
+greet()
 ```
 
-## Contributing
+Function with return:
 
-Contributions are welcome! Good first steps:
+```python
+def add(a,b):
+    return a+b
+```
 
-1. Open an issue describing what you'd like to add or improve.
-2. Fork the repo and create a feature branch.
-3. Make small, focused commits and open a pull request.
+Default argument:
 
-Guidelines:
+```python
+def sum(a,b=10):
+    return a+b
+```
 
-- Keep changes small and well-scoped.
-- Add or update tests for new functionality.
-- Document new examples in the relevant folder README.
+---
 
-## Notes for AI coding agents
+# 5. *args and **kwargs
 
-This repository includes `copilot-instructions.md` that contains hints for inline suggestions. The main guidance is in `AGENTS.md`. Agents should:
+### *args → multiple values (Tuple)
 
-- Focus on small, contained inline suggestions.
-- Avoid proposing large-scale refactors without opening an issue first.
+```python
+def demo(*a):
+    print(a)
 
-## License
+demo(1,2,3)
+```
 
-If you want to add a license, create a `LICENSE` file (e.g., MIT, Apache 2.0). If no license is present, the repository remains "All rights reserved" by default.
+### **kwargs → named arguments (Dictionary)
 
-## Contact
+```python
+def demo(**x):
+    print(x)
 
-Maintainer: patelrambharat
+demo(a=10,b=20)
+```
 
-If you have questions or suggestions, open an issue or contact the maintainer via GitHub.
+---
+
+# 6. Lambda Function
+
+Anonymous one-line function.
+
+```python
+add = lambda a,b : a+b
+print(add(2,3))
+```
+
+Square:
+
+```python
+square = lambda x : x*x
+```
+
+---
+
+# 7. Map Function
+
+Applies operation on every element.
+
+```python
+nums = [1,2,3]
+
+print(list(map(lambda x:x*x, nums)))
+```
+
+Output:
+
+```python
+[1,4,9]
+```
+
+---
+
+# 8. Filter Function
+
+Filters values based on condition.
+
+```python
+nums = [1,2,3,4]
+
+print(list(filter(lambda x:x%2==0, nums)))
+```
+
+Output:
+
+```python
+[2,4]
+```
+
+---
+
+# 9. Reduce Function
+
+Reduces list into one value.
+
+```python
+from functools import reduce
+
+nums = [1,2,3,4]
+
+print(reduce(lambda x,y:x+y, nums))
+```
+
+Output:
+
+```python
+10
+```
+
+---
+
+# 10. Exception Handling
+
+Used to handle runtime errors.
+
+```python
+try:
+    a = 10/0
+
+except Exception as e:
+    print(e)
+```
+
+Finally block:
+
+```python
+try:
+    a = 10/0
+
+finally:
+    print("Always runs")
+```
+
+Custom exception:
+
+```python
+age = -1
+
+if age < 0:
+    raise Exception("Invalid age")
+```
+
+---
+
+# 11. String Formatting (f-string)
+
+Insert variable inside string.
+
+```python
+name = "Bharat"
+
+print(f"My name is {name}")
+```
+
+---
+
+# 12. Global Variable
+
+Variable declared outside function.
+
+```python
+count = 5
+
+def update():
+    global count
+    count += 1
+```
+
+---
+
+# 13. Enumerate
+
+Returns index and value together.
+
+```python
+nums = [100,200,300]
+
+for i,x in enumerate(nums):
+    print(i,x)
+```
+
+Output:
+
+```python
+0 100
+1 200
+2 300
+```
+
+---
+
+# 14. OOPS (Object Oriented Programming)
+
+Class = Blueprint  
+Object = Real instance
+
+```python
+class Employee:
+
+    name = "Bharat"
+
+obj = Employee()
+
+print(obj.name)
+```
+
+---
+
+# 15. Methods
+
+Function inside class = Method
+
+```python
+class Employee:
+
+    def info(self):
+        print("Hello")
+```
+
+`self` refers to current object.
+
+---
+
+# 16. Constructor
+
+Runs automatically when object is created.
+
+```python
+class Employee:
+
+    def __init__(self):
+        print("Constructor called")
+```
+
+Parameterized constructor:
+
+```python
+class Employee:
+
+    def __init__(self,name):
+        self.name = name
+```
+
+---
+
+# 17. Attributes
+
+### Class Attribute
+
+Shared by all objects.
+
+```python
+class Employee:
+
+    company = "Accenture"
+```
+
+### Instance Attribute
+
+Unique for each object.
+
+```python
+class Employee:
+
+    def __init__(self,name):
+        self.name = name
+```
+
+---
+
+# 18. Static Method
+
+No self, no cls.
+
+```python
+class Employee:
+
+    @staticmethod
+    def add(a,b):
+        return a+b
+```
+
+---
+
+# 19. Class Method
+
+Uses cls and class variables.
+
+```python
+class Employee:
+
+    bonus = 10
+
+    @classmethod
+    def add(cls,a,b):
+        return a+b+cls.bonus
+```
+
+---
+
+# 20. Getter and Setter
+
+Used for Encapsulation.
+
+```python
+class Employee:
+
+    def __init__(self):
+        self.__salary = 5000
+
+    def getSalary(self):
+        return self.__salary
+
+    def setSalary(self,salary):
+        self.__salary = salary
+```
+
+---
+
+# Topics Covered
+
+- Variables and Data Types  
+- Conditional Statements  
+- Loops  
+- Functions  
+- Default Arguments  
+- *args and **kwargs  
+- Lambda Functions  
+- Map, Filter, Reduce  
+- Exception Handling  
+- String Formatting  
+- Global Variables  
+- Enumerate  
+- OOPS  
+- Methods  
+- Constructor  
+- Attributes  
+- Static Method  
+- Class Method  
+- Getter and Setter  
+
+---
+
+# Tools Used
+
+- Python 3  
+- VS Code  
+- Git  
+- GitHub  
+
+---
+
+# Author
+
+**Rambharat Patel**
+
+GitHub: https://github.com/patelrambharat
